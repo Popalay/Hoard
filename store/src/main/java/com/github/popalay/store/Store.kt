@@ -1,7 +1,7 @@
 package com.github.popalay.store
 
 import com.github.popalay.store.fetchpolicy.FetchPolicy
-import com.github.popalay.store.fetchpolicy.SingleFetchPolicy
+import com.github.popalay.store.fetchpolicy.FetchPolicyFactory
 import com.github.popalay.store.mapper.DefaultMapper
 import com.github.popalay.store.mapper.Mapper
 import com.github.popalay.store.utils.isConnectivityExceptions
@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
 open class Store<RAW, in KEY>(
     private val fetcher: Fetcher<RAW, KEY>,
     private val persister: Persister<RAW, KEY>,
-    private val fetchPolicy: FetchPolicy<RAW> = SingleFetchPolicy()
+    private val fetchPolicy: FetchPolicy<RAW> = FetchPolicyFactory.singleFetchPolicy()
 ) {
 
     fun get(key: KEY, ignoreConnectivity: Boolean = false): Flowable<RAW> = flow(
