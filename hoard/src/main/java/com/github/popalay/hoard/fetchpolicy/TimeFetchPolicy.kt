@@ -1,4 +1,4 @@
-package com.github.popalay.store.fetchpolicy
+package com.github.popalay.hoard.fetchpolicy
 
 class TimeFetchPolicy<in RAW>(private val fetchingDelay: Long) : FetchPolicy<RAW> {
 

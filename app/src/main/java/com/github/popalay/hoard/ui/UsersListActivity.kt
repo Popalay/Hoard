@@ -1,11 +1,11 @@
-package com.github.popalay.store.ui
+package com.github.popalay.hoard.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.github.popalay.store.R
-import com.github.popalay.store.ServiceLocator
-import com.github.popalay.store.store.GithubUserStore
+import com.github.popalay.hoard.R
+import com.github.popalay.hoard.ServiceLocator
+import com.github.popalay.hoard.store.GithubUserHoard
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposables
 import io.reactivex.schedulers.Schedulers
@@ -39,7 +39,7 @@ class UsersListActivity : AppCompatActivity() {
 
     private fun loadUsers() {
         disposable.dispose()
-        disposable = ServiceLocator.githubUserStore.get(GithubUserStore.Key.All)
+        disposable = ServiceLocator.githubUserStore.get(GithubUserHoard.Key.All)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

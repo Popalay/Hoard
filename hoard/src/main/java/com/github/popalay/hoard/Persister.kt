@@ -1,4 +1,4 @@
-package com.github.popalay.store
+package com.github.popalay.hoard
 
 import io.reactivex.Completable
 import io.reactivex.Flowable

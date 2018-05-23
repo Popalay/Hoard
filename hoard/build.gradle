@@ -11,10 +11,10 @@ dependencies {
 publish {
     userOrg = 'popalay'
     groupId = 'com.github.popalay'
-    artifactId = 'store'
+    artifactId = 'hoard'
     publishVersion = project.versionName
-    desc = 'Java library for reactive data loading'
+    desc = 'Kotlin library for reactive data loading'
     licences = ['Apache-2.0']
-    uploadName = 'Store'
-    website = 'https://github.com/Popalay/Store'
+    uploadName = 'Hoard'
+    website = 'https://github.com/Popalay/Hoard'
 }

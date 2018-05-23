@@ -1,4 +1,4 @@
-package com.github.popalay.store.mapper
+package com.github.popalay.hoard.mapper
 
 import io.reactivex.Flowable
 

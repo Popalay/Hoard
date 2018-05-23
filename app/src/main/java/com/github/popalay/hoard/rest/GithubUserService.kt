@@ -1,6 +1,6 @@
-package com.github.popalay.store.rest
+package com.github.popalay.hoard.rest
 
-import com.github.popalay.store.model.GithubUser
+import com.github.popalay.hoard.model.GithubUser
 import io.reactivex.Single
 import retrofit2.http.GET
 

@@ -1,4 +1,4 @@
-package com.github.popalay.store.database
+package com.github.popalay.hoard.database
 
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert

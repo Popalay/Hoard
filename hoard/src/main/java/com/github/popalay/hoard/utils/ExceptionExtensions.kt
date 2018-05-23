@@ -1,4 +1,4 @@
-package com.github.popalay.store.utils
+package com.github.popalay.hoard.utils
 
 import java.net.ConnectException
 import java.net.SocketException

@@ -1,6 +1,6 @@
-package com.github.popalay.store.rest
+package com.github.popalay.hoard.rest
 
-import com.github.popalay.store.BuildConfig
+import com.github.popalay.hoard.BuildConfig
 import com.ihsanbal.logging.Level
 import com.ihsanbal.logging.LoggingInterceptor
 import okhttp3.Authenticator

@@ -1,4 +1,4 @@
-package com.github.popalay.store.model
+package com.github.popalay.hoard.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey

@@ -1,4 +1,4 @@
-package com.github.popalay.store.fetchpolicy
+package com.github.popalay.hoard.fetchpolicy
 
 object FetchPolicyFactory {
 

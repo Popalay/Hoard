@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:paddingBottom="8dp"
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp"
+    android:paddingTop="8dp">
 
     <ImageView
         android:id="@+id/imageUser"
@@ -19,6 +22,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         tools:text="@tools:sample/full_names" />
 
 </LinearLayout>

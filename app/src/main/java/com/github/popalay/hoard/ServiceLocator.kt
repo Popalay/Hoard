@@ -1,12 +1,12 @@
-package com.github.popalay.store
+package com.github.popalay.hoard
 
 import android.arch.persistence.room.Room
 import android.content.Context
-import com.github.popalay.store.database.Database
-import com.github.popalay.store.database.GithubUserDao
-import com.github.popalay.store.rest.GithubUserService
-import com.github.popalay.store.rest.UnsafeHttpClientBuilder
-import com.github.popalay.store.store.GithubUserStore
+import com.github.popalay.hoard.database.Database
+import com.github.popalay.hoard.database.GithubUserDao
+import com.github.popalay.hoard.rest.GithubUserService
+import com.github.popalay.hoard.rest.UnsafeHttpClientBuilder
+import com.github.popalay.hoard.store.GithubUserHoard
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -67,7 +67,7 @@ object ServiceLocator {
         database.githubUserDao()
     }
 
-    val githubUserStore: GithubUserStore by lazy {
-        GithubUserStore(githubUserService, githubUserDao)
+    val githubUserStore: GithubUserHoard by lazy {
+        GithubUserHoard(githubUserService, githubUserDao)
     }
 }

@@ -1,9 +1,9 @@
-package com.github.popalay.store.database
+package com.github.popalay.hoard.database
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
-import com.github.popalay.store.model.GithubUser
+import com.github.popalay.hoard.model.GithubUser
 
 @Database(
     entities = [
