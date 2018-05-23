@@ -11,6 +11,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import io.reactivex.schedulers.Schedulers
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -19,12 +20,20 @@ import kotlin.properties.Delegates
 
 object ServiceLocator {
 
-    const val baseUrl = "https://api.github.com/"
+    const val baseUrl = "https://masoud.p.mashape.com/"
 
     var context: Context by Delegates.notNull()
 
     val httpClient: OkHttpClient by lazy {
         UnsafeHttpClientBuilder()
+            .unsafe()
+            .withInterceptor(Interceptor { chain ->
+                val original = chain.request().newBuilder()
+                    .header("X-Mashape-Key", "ZFM7vNybAhmshz28Mo2b5C7DxXy7p13eh5WjsnQ2R5ptvcxTqf")
+                    .header("Accept", "application/json")
+                    .build()
+                chain.proceed(original)
+            })
             .withLogger()
             .build()
     }
