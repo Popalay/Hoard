@@ -13,11 +13,10 @@ import io.reactivex.schedulers.Schedulers
  * Created by Denys Nykyforov on 16.12.2017
  * Copyright (c) 2017. All right reserved
  */
-//TODO add builder
-open class Hoard<RAW, in KEY>(
+open class Hoard<RAW, KEY : Key>(
     private val fetcher: Fetcher<RAW, KEY>,
     private val persister: Persister<RAW, KEY>,
-    private val fetchPolicy: FetchPolicy<RAW> = FetchPolicyFactory.singleFetchPolicy()
+    val fetchPolicy: FetchPolicy<RAW> = FetchPolicyFactory.singleFetchPolicy()
 ) {
 
     fun get(key: KEY, ignoreConnectivity: Boolean = false): Flowable<RAW> = flow(
@@ -26,7 +25,7 @@ open class Hoard<RAW, in KEY>(
         DefaultMapper()
     )
 
-    private fun <OUT> flow(
+    fun <OUT> flow(
         key: KEY,
         ignoreConnectivity: Boolean = false,
         mapper: Mapper<KEY, RAW, OUT>

@@ -1,8 +1,8 @@
-package com.github.popalay.hoard.store
+package com.github.popalay.hoard.hoard
 
 import com.github.popalay.hoard.Fetcher
-import com.github.popalay.hoard.Persister
 import com.github.popalay.hoard.Hoard
+import com.github.popalay.hoard.Persister
 import com.github.popalay.hoard.database.GithubUserDao
 import com.github.popalay.hoard.fetchpolicy.FetchPolicyFactory
 import com.github.popalay.hoard.fetchpolicy.TimeFetchPolicy
@@ -21,7 +21,7 @@ class GithubUserHoard(
     fetchPolicy = FetchPolicyFactory.timeFetchPolicy(TimeFetchPolicy.MEDIUM_DELAY)
 ) {
 
-    sealed class Key {
+    sealed class Key : com.github.popalay.hoard.Key {
 
         object All : Key()
     }

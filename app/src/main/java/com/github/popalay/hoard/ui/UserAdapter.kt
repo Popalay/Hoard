@@ -8,19 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.popalay.hoard.R
 import com.github.popalay.hoard.model.GithubUser
+import com.github.popalay.hoard.utils.Identifiable
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_user.view.*
 
-class UserAdapter : ListAdapter<GithubUser, UserAdapter.UserViewHolder>(DIFF_CALLBACK) {
+class UserAdapter : ListAdapter<Identifiable, UserAdapter.UserViewHolder>(DIFF_CALLBACK) {
 
     companion object {
 
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<GithubUser>() {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Identifiable>() {
 
-            override fun areItemsTheSame(oldItem: GithubUser?, newItem: GithubUser?) = oldItem?.id == newItem?.id
+            override fun areItemsTheSame(oldItem: Identifiable?, newItem: Identifiable?) = oldItem?.id == newItem?.id
 
-            override fun areContentsTheSame(oldItem: GithubUser?, newItem: GithubUser?) = oldItem == newItem
-
+            override fun areContentsTheSame(oldItem: Identifiable?, newItem: Identifiable?) = oldItem == newItem
         }
     }
 
@@ -35,12 +35,14 @@ class UserAdapter : ListAdapter<GithubUser, UserAdapter.UserViewHolder>(DIFF_CAL
 
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: GithubUser) {
-            itemView.textUserName.text = item.login
-            Picasso.get()
-                .load(item.avatarUrl)
-                .placeholder(R.mipmap.ic_launcher)
-                .into(itemView.imageUser)
+        fun bind(item: Identifiable) {
+            (item as? GithubUser)?.run {
+                itemView.textUserName.text = login
+                Picasso.get()
+                    .load(avatarUrl)
+                    .placeholder(R.mipmap.ic_launcher)
+                    .into(itemView.imageUser)
+            }
         }
     }
 }

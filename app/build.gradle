@@ -38,4 +38,5 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$support"
     implementation "com.github.ihsanbal:LoggingInterceptor:$okHttpLogging"
     implementation "com.squareup.picasso:picasso:$picasso"
+    implementation "com.android.support:design:$support"
 }

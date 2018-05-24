@@ -4,9 +4,9 @@ import android.arch.persistence.room.Room
 import android.content.Context
 import com.github.popalay.hoard.database.Database
 import com.github.popalay.hoard.database.GithubUserDao
+import com.github.popalay.hoard.hoard.GithubUserHoard
 import com.github.popalay.hoard.rest.GithubUserService
 import com.github.popalay.hoard.rest.UnsafeHttpClientBuilder
-import com.github.popalay.hoard.store.GithubUserHoard
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
