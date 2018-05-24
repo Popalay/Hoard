@@ -18,10 +18,10 @@ Kotlin library for reactive data loading
 Add the dependency in your build.gradle:
 ```groovy
 dependencies {
-    compile "com.popalay.hoard:hoard:X.X.X"
+    implementation "com.popalay.hoard:hoard:$hoardVersion"
 }
 ```
-## How to use
+## Usage
 
 Create Hoard instance and observe changes
 ```kotlin
@@ -29,7 +29,7 @@ GithubUserHoard(githubUserService, githubUserDao)
   .get(GithubUserHoard.Key.All, dataIsEmpty = { it.isEmpty() })
     .subscribeOn(Schedulers.io())
     .observeOn(AndroidSchedulers.mainThread())
-    .subscribe(adapter::submitList}, ::handleError)
+    .subscribe(adapter::submitList, ::handleError)
 ```
 
 ## [Sample](app/src/main/java/com/github/popalay/hoard/)
@@ -148,10 +148,15 @@ internal fun <KEY : Key, RAW> Hoard<RAW, KEY>.getWithResult(
 ).startWith(Result.Idle)
 ```
 
+## Developed by
+
+[Denys Nykyforov](https://github.com/Popalay)  
+[Ruslan Sierov](https://github.com/Augusent)  
+
 ## License
 
 ```
-Copyright (c) 2018 Nykyforov Denys (@popalay)
+Copyright (c) 2018 Denys Nykyforov (@popalay)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
