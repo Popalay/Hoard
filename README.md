@@ -18,7 +18,7 @@ Kotlin library for reactive data loading
 Add the dependency in your build.gradle:
 ```groovy
 dependencies {
-    implementation "com.popalay.hoard:hoard:$hoardVersion"
+    implementation "com.github.popalay:hoard:$hoardVersion"
 }
 ```
 ## Usage
