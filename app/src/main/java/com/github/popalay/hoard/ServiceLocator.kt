@@ -1,7 +1,7 @@
 package com.github.popalay.hoard
 
-import android.arch.persistence.room.Room
 import android.content.Context
+import androidx.room.Room
 import com.github.popalay.hoard.database.Database
 import com.github.popalay.hoard.database.GithubUserDao
 import com.github.popalay.hoard.hoard.GithubUserHoard

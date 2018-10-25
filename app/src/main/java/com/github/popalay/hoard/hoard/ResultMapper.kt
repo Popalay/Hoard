@@ -1,6 +1,6 @@
 package com.github.popalay.hoard.hoard
 
-import android.arch.persistence.room.EmptyResultSetException
+import androidx.room.EmptyResultSetException
 import com.github.popalay.hoard.Hoard
 import com.github.popalay.hoard.Key
 import com.github.popalay.hoard.fetchpolicy.FetchPolicy

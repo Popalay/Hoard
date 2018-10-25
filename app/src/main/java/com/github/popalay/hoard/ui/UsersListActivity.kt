@@ -1,8 +1,8 @@
 package com.github.popalay.hoard.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.github.popalay.hoard.R
 import com.github.popalay.hoard.ServiceLocator
 import com.github.popalay.hoard.hoard.GithubUserHoard
@@ -71,9 +71,13 @@ class UsersListActivity : AppCompatActivity(), ListStatesView {
 
     private fun loadUsers() {
         disposable.dispose()
-        disposable = ServiceLocator.githubUserStore.getWithResult(GithubUserHoard.Key.All, dataIsEmpty = { it.isEmpty() })
+        disposable = ServiceLocator.githubUserStore.getWithResult(
+            GithubUserHoard.Key.All,
+            dataIsEmpty = { it.isEmpty() })
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ result = it }, { Log.d("UsersListActivity", "Load users error ${it.localizedMessage}") })
+            .subscribe(
+                { result = it },
+                { Log.d("UsersListActivity", "Load users error ${it.localizedMessage}") })
     }
 }

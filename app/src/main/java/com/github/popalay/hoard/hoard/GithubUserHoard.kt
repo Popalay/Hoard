@@ -31,9 +31,10 @@ private class GithubUserFetcher(
     private val service: GithubUserService
 ) : Fetcher<List<GithubUser>, GithubUserHoard.Key> {
 
-    override fun fetch(key: GithubUserHoard.Key): Single<List<GithubUser>> = with(key) {
+    override fun fetch(key: GithubUserHoard.Key): Flowable<List<GithubUser>> = with(key) {
         when (this) {
             GithubUserHoard.Key.All -> service.fetchUsers()
+                .toFlowable()
         }
     }
 }

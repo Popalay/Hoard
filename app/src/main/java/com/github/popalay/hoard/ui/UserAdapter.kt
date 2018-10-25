@@ -1,11 +1,11 @@
 package com.github.popalay.hoard.ui
 
-import android.support.v7.recyclerview.extensions.ListAdapter
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.github.popalay.hoard.R
 import com.github.popalay.hoard.model.GithubUser
 import com.github.popalay.hoard.utils.Identifiable
@@ -18,9 +18,11 @@ class UserAdapter : ListAdapter<Identifiable, UserAdapter.UserViewHolder>(DIFF_C
 
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Identifiable>() {
 
-            override fun areItemsTheSame(oldItem: Identifiable?, newItem: Identifiable?) = oldItem?.id == newItem?.id
+            override fun areItemsTheSame(oldItem: Identifiable, newItem: Identifiable) =
+                oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Identifiable?, newItem: Identifiable?) = oldItem == newItem
+            override fun areContentsTheSame(oldItem: Identifiable, newItem: Identifiable) =
+                oldItem == newItem
         }
     }
 

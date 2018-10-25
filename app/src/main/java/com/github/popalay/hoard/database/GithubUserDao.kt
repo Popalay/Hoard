@@ -1,10 +1,6 @@
 package com.github.popalay.hoard.database
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.Transaction
+import androidx.room.*
 import com.github.popalay.hoard.model.GithubUser
 import io.reactivex.Flowable
 import io.reactivex.Maybe
@@ -24,7 +20,8 @@ abstract class GithubUserDao : BaseDao<GithubUser> {
     @Query("""SELECT count(*) FROM githubuser LIMIT 1""")
     abstract fun isNotEmpty(): Maybe<Boolean>
 
-    @Transaction open fun deleteAndInsert(users: List<GithubUser>) {
+    @Transaction
+    open fun deleteAndInsert(users: List<GithubUser>) {
         deleteAll()
         bulkInsert(users)
     }
