@@ -58,7 +58,7 @@ open class Hoard<RAW, KEY : Key>(
 
     private fun fetchAndStore(key: KEY, ignoreConnectivity: Boolean): Completable = fetcher.fetch(key)
         .subscribeOn(Schedulers.io())
-        .doOnSuccess(fetchPolicy::onFetched)
+        .doOnNext(fetchPolicy::onFetched)
         .flatMapCompletable { persister.write(it, key).subscribeOn(Schedulers.io()) }
         .onErrorComplete { ignoreConnectivity && it.isConnectivityExceptions() }
 }

@@ -1,6 +1,6 @@
 package com.github.popalay.hoard
 
-import io.reactivex.Single
+import io.reactivex.Flowable
 
 /**
  * Created by Denys Nykyforov on 18.12.2017
@@ -8,5 +8,5 @@ import io.reactivex.Single
  */
 interface Fetcher<RAW, in KEY> {
 
-    fun fetch(key: KEY): Single<RAW>
+    fun fetch(key: KEY): Flowable<RAW>
 }
